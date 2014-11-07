@@ -34,7 +34,6 @@
 					mc.posY=mc.y;
 					mc.addEventListener(MouseEvent.MOUSE_DOWN,mouseEvt);
 					mc.addEventListener(MouseEvent.MOUSE_UP,mouseEvt);
-					//mc.addEventListener(MouseEvent.CLICK,clickEvt);
 				}
 			}
 		}
@@ -68,7 +67,6 @@
 					
 					 TweenLite.to(mc,0.3,{x:mc.posX,y:mc.posY});
 				}
-				
 			}
 		}
 		private function deronMc(mc):void
@@ -180,7 +178,5 @@
 				elemtArr[seri*pageNum+i].visible=true;
 			}
 		}
-
 	}
-
 }
