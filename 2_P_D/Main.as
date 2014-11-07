@@ -335,6 +335,7 @@
 					bar.visible=false;
 				}
 				hairBar.visible=true;
+				currBar=hairBar;
 			}
 			else
 			{
@@ -343,6 +344,7 @@
 					bar.visible=false;
 				}
 				hairBar2.visible=true;
+				currBar=hairBar2;
 			}
 			girl.resetGirl();
 		}
