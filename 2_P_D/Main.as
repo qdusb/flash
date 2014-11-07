@@ -48,6 +48,7 @@
 		public function Main()
 		{
 			stop();
+			init();
 		}
 		
 		private function initElemt():void
@@ -160,8 +161,8 @@
 			btnArr2=[hairBtn2,dressBtn2,coatBtn2,pantsBtn2,headdressBtn2,earringsBtn2,necklaceBtn2,flowerBtn2,shoesBtn2];
 			barArr2=[hairBar2,dressBar2,coatBar2,pantsBar2,headdressBar2,earringsBar2,necklaceBar2,flowerBar2,shoesBar2];
 
-			cBtnArr=btnArr;
-			cBarArr=barArr;
+			cBtnArr=btnArr2;
+			cBarArr=barArr2;
 
 			for each(var btn:SimpleButton in cBtnArr)
 			{
@@ -205,7 +206,7 @@
 		{
 			for each(var btn:SimpleButton in btnArr2)
 			{
-				TweenLite.to(btn,speed,{x:100});
+				TweenLite.to(btn,speed,{x:1000});
 			}
 			TweenLite.to(currBar,speed,{x:850});
 			TweenLite.to(girl,speed,{x:-700});
@@ -220,7 +221,7 @@
 		private function goTwoEvt2(e:MouseEvent):void
 		{
 			Voice.clickBtnSound();
-			initPosScene3(0.8);
+			initPosScene3(1);
 			setTimeout(initMakeupScene2,800);
 			
 		}
@@ -228,7 +229,7 @@
 		private function showEvt(e:MouseEvent):void
 		{
 			Voice.clickBtnSound();
-			initPosScene3();
+			initPosScene3(1);
 			setTimeout(showGame,800);
 		}
 		private function showGame():void
@@ -267,10 +268,10 @@
 		}
 		private function showShowBtn()
 		{
-			TweenLite.to(replayBtn,0.5,{x:57});
-			TweenLite.to(moreBtn3,0.5,{x:81});
-			TweenLite.to(printBtn,0.5,{x:665});
-			TweenLite.to(saveBtn,0.5,{x:665});
+			TweenLite.to(replayBtn,1,{x:57});
+			TweenLite.to(moreBtn3,1,{x:81});
+			TweenLite.to(printBtn,1,{x:665});
+			TweenLite.to(saveBtn,1,{x:665});
 		}
 
 		private function replayEvt(e:MouseEvent):void
@@ -288,10 +289,12 @@
 		}
 		public function moveGirl():void
 		{
+			_girl1.x=-500;
 			TweenLite.to(_girl1,0.5,{x:0,scaleX:1,scaleY:1});
 		}
 		public function moveGirl2():void
 		{
+			_girl2.x=500;
 			TweenLite.to(_girl2,0.5,{x:0,scaleX:1,scaleY:1,onComplete:moveComplete});
 		}
 		private function moveComplete()
