@@ -51,8 +51,7 @@ package
 				bar.visible=false;
 				bar.resetBar();
 			}
-			seri=0;
-			currBar=bars[seri];
+			currBar=bars[0];
 			currBar.visible=true;
 		}
 		private function barTurnEvt(e:MouseEvent)
