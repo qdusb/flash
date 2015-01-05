@@ -56,9 +56,7 @@
 		private function hideEvt(e:MouseEvent):void
 		{
 			Voice.clickBtnSound();
-			var mc:MovieClip = e.currentTarget as MovieClip;
-
-			var str:String = mc.name;
+			var str:String = e.currentTarget.name;
 			var re:RegExp = /[a-z]+/;
 			var ename=str.match(re);
 			hideElemt(ename);
@@ -131,7 +129,7 @@
 				mc.visible=true;
 			}
 		}
-		public function wearHair(type:int=0,seri:int=2,mc:MovieClip=null):void
+		public function wearHair(type:int=0,seri:int=1,mc:MovieClip=null):void
 		{
 			Voice.clickBtnSound();
 			star.visible=true;
@@ -199,6 +197,7 @@
 				mc.gotoAndStop(seri);
 				mc.mc=dMc;
 			}
+			
 			var mc2=getElemtByName(decoratorName+"2");
 			if(mc2){
 				mc2.visible = true;

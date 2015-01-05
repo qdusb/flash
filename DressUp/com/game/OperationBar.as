@@ -1,4 +1,4 @@
-package
+package com.game
 {
     import flash.display.MovieClip;
 	import flash.events.MouseEvent;
