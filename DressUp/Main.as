@@ -30,12 +30,12 @@
 		
 		public function Main()
 		{
-			init();
+			
 		}
 		
 		private function init():void
 		{
-			stop();
+			gotoAndStop(1,"mainScene");
 			if(BackSoundSpeaker.speakerIndex==1)
 			{
 				Voice.startBackSound();
@@ -67,29 +67,21 @@
 			var btns:Array=[showBtn,resetBtn,backBtn,moreBtn];
 			for each(var btn:SimpleButton in btns)
 			{
-				TweenLite.to(btn,speed,{y:btn.y+200});
+				TweenLite.to(btn,speed,{x:btn.x+200});
 			}
 			TweenLite.to(girl,speed,{x:500});
+			TweenLite.to(bar,speed,{x:-260});
+			
 		}
 		private function actionFrame2Pos()
 		{
 			TweenLite.to(girl,1,{x:0});
-			var btns:Array=[showBtn,resetBtn,backBtn,moreBtn2];
+			TweenLite.to(bar,1,{x:240});
+			var btns:Array=[showBtn,resetBtn,backBtn,moreBtn];
 			for each(var btn:SimpleButton in btns)
 			{
-				TweenLite.to(btn,1,{y:506});
+				TweenLite.to(btn,1,{x:661});
 			}
-		}
-		private function selectBarEvt(e:MouseEvent):void
-		{
-			Voice.clickBtnSound();
-			var btn:SimpleButton=e.currentTarget as SimpleButton;
-			currBar=barArr[btnArr.indexOf(btn)];
-			for each(var bar:MovieClip in barArr)
-			{
-				bar.visible=false;
-			}
-			currBar.visible=true;
 		}
 		
 		private function backMcEvt(e:MouseEvent):void
@@ -135,10 +127,10 @@
 		}
 		private function actionShowFramePos():void
 		{
-			TweenLite.to(moreBtn,1,{x:680});
-			TweenLite.to(replayBtn,1,{x:680});
-			TweenLite.to(printBtn,1,{x:62});
-			TweenLite.to(saveBtn,1,{x:62});
+			TweenLite.to(moreBtn,1,{x:638});
+			TweenLite.to(replayBtn,1,{x:638});
+			TweenLite.to(printBtn,1,{x:19});
+			TweenLite.to(saveBtn,1,{x:19});
 			TweenLite.to(girl,1,{x:-200,y:0,scaleX:1,scaleY:1,ease:Bounce.easeOut,onComplete:function(){star.visible=true;}});
 		}
 		private function replayEvt(e:MouseEvent):void
