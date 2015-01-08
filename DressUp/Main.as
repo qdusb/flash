@@ -30,10 +30,10 @@
 		
 		public function Main()
 		{
-			
+			stop();
 		}
 		
-		private function init():void
+		public function init():void
 		{
 			gotoAndStop(1,"mainScene");
 			if(BackSoundSpeaker.speakerIndex==1)
