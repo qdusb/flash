@@ -35,6 +35,7 @@
 					mc.buttonMode=true;
 					mc.posX=mc.x;
 					mc.posY=mc.y;
+					mc.currPage=false;
 					mc.addEventListener(MouseEvent.MOUSE_DOWN,mouseEvt);
 					mc.addEventListener(MouseEvent.MOUSE_UP,mouseEvt);
 					//mc.addEventListener(MouseEvent.CLICK,clickEvt);
@@ -57,6 +58,7 @@
 			{
 				mc.filters=[glow];
 				mc.startDrag();
+				this.addChild(mc);
 			}
 			else
 			{
@@ -65,12 +67,15 @@
 				if(BitmapHitTest.complexHitTestObject(mc,Main.girl))
 				{
 					mc.visible=false;
-					deronMc(mc);
+				   deronMc(mc);
 				   for each(var mcc in elemtArr)
 					{
-						if(mcc!=mc)
+						if(mcc!=mc&&(mcc.x!=mcc.posX||mcc.y!=mcc.posY))
 						{
-							mcc.visible=true;
+							if(mcc.currPage==true)
+							{
+								mcc.visible=true;
+							}
 							TweenLite.to(mcc,0.3,{x:mcc.posX,y:mcc.posY});
 						}
 					}
@@ -83,7 +88,7 @@
 		}
 		private function deronMc(mc):void
 		{
-			Voice.clickBtnSound();
+			Voice.dressBtnSound();
 			var seri:int=elemtNameArr.indexOf(mc.name)+1;
 			Main.girl.star.visible=true;
 			Main.girl.star.gotoAndPlay(1);
@@ -139,10 +144,21 @@
 			for each(var mc:MovieClip in elemtArr)
 			{
 				mc.visible=false;
+				mc.currPage=false;
 			}
+			
 			for each(mc in pages[seri])
 			{
-				mc.visible=true;
+				mc.currPage=true;
+				if(mc.x!=mc.posX&&mc.y!=mc.posY)
+				{
+					
+				}
+				else
+				{
+					mc.visible=true;
+				}
+				
 			}
 		}
 

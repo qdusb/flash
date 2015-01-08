@@ -1,5 +1,6 @@
 ﻿package com.game
 {
+	import flash.display.MovieClip;
 
 	public class JewelryBar extends MovieClip
 	{
@@ -15,7 +16,7 @@
 			seri=0;
 			bars=[necklaceBar,earringsBar];
 		}
-		public function setPageNum()
+		public function setPageNum(num:int=0)
 		{
 			showCurrPage();	
 		}
@@ -31,13 +32,18 @@
 			seri=seri==bars.length?0:seri;
 			showCurrPage();
 		}
+		public function resetBar()
+		{
+			seri=0;
+			showCurrPage();	
+		}
 		public function showCurrPage()
 		{
 			for each(var bar:MovieClip in bars)
 			{
 				bar.visible=false;
 			}
-			bar[seri].visible=true;
+			bars[seri].visible=true;
 		}
 
 	}
