@@ -132,7 +132,6 @@
 				
 			}
 			Main.girl.wearHair(type,val,elemtArr2[type]);
-			
 		}
 	}
 
