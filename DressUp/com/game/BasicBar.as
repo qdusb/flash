@@ -9,7 +9,7 @@
 	{
 
 		public var elemtArr:Array=new Array();
-		public var pageArr:Array=new Array();
+		public var pages:Array=new Array();
 		public var elemtNameArr:Array=new Array();
 		public var seri:int=0;
 		public var pageNum:int=1;
@@ -23,7 +23,6 @@
 						  "d31","d32","d33","d34","d35","d36","d37","d38","d39","d40",
 						  "d41","d42","d43","d44","d45","d46","d47","d48","d49","d50"];
 			initElemt();
-			//setPageArr(2);
 		}
 		public function initElemt():void
 		{
@@ -93,7 +92,20 @@
 			var ename=str.match(re);
 			Main.girl.decoratorGirl(ename[1],seri,mc);
 		}
-		public function setPageArr(num:int=6):void
+		//设置翻页数
+		public function setPageNum(page:int=6)
+		{
+			pageNum=Math.ceil(elemtArr.length/page);
+			for(var i:int=0;i<page;i++)
+			{
+				var arr:Array=elemtArr.slice(pageNum*i,pageNum*(i+1));
+				pages.push(arr);
+			}
+			seri=0;
+			showCurrPage();
+		}
+		//设置每一页的元件数量
+		public function setPerPageNum(num:int=6):void
 		{
 			pageNum=num;
 			var cnt:int=elemtArr.length;
@@ -105,28 +117,21 @@
 			for(var i:int=0;i<page;i++)
 			{
 				var arr:Array=elemtArr.slice(pageNum*i,pageNum*(i+1));
-				pageArr.push(arr);
+				pages.push(arr);
 			}
 			seri=0;
-			for each(var mc:MovieClip in elemtArr)
-			{
-				mc.visible=false;
-			}
-			for each(mc in pageArr[0])
-			{
-				mc.visible=true;
-			}
+			showCurrPage();
 		}
 		public function turnRight():void
 		{
 			seri++;
-			seri=seri==pageArr.length?0:seri;
+			seri=seri==pages.length?0:seri;
 			showCurrPage();
 		}
 		public function turnLeft():void
 		{
 			seri--;
-			seri=seri<0?pageArr.length-1:seri;
+			seri=seri<0?pages.length-1:seri;
 			showCurrPage();
 		}
 		public function showCurrPage()
@@ -135,7 +140,7 @@
 			{
 				mc.visible=false;
 			}
-			for each(mc in pageArr[seri])
+			for each(mc in pages[seri])
 			{
 				mc.visible=true;
 			}

@@ -1,7 +1,7 @@
 ﻿package com.game
 {
 
-	public class JewelryBar
+	public class JewelryBar extends MovieClip
 	{
 		public var bars:Array;
 		private var seri:int=0;
@@ -14,6 +14,10 @@
 		{
 			seri=0;
 			bars=[necklaceBar,earringsBar];
+		}
+		public function setPageNum()
+		{
+			showCurrPage();	
 		}
 		public function turnLeft():void
 		{
