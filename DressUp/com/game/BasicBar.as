@@ -35,7 +35,7 @@
 					mc.buttonMode=true;
 					mc.posX=mc.x;
 					mc.posY=mc.y;
-					mc.currPage=false;
+					mc.currPage=true;
 					mc.addEventListener(MouseEvent.MOUSE_DOWN,mouseEvt);
 					mc.addEventListener(MouseEvent.MOUSE_UP,mouseEvt);
 					//mc.addEventListener(MouseEvent.CLICK,clickEvt);
@@ -48,7 +48,15 @@
 			{
 				mc.x=mc.posX;
 				mc.y=mc.posY;
-				mc.visible=true;
+				if(pageNum>1){
+					mc.visible=false;
+				}else{
+					mc.visible=true;
+				}
+			}
+			if(pageNum>1){
+				seri=0;
+				showCurrPage();
 			}
 		}
 		private function mouseEvt(e:MouseEvent):void
@@ -66,7 +74,7 @@
 				mc.stopDrag();
 				if(BitmapHitTest.complexHitTestObject(mc,Main.girl))
 				{
-					mc.visible=false;
+				   mc.visible=false;
 				   deronMc(mc);
 				   for each(var mcc in elemtArr)
 					{

@@ -36,6 +36,10 @@
 		{
 			seri=0;
 			showCurrPage();	
+			for each(var bar:MovieClip in bars)
+			{
+				bar.resetBar();
+			}
 		}
 		public function showCurrPage()
 		{
